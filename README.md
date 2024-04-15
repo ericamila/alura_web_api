@@ -1,19 +1,18 @@
-# flutter_webapi_first_course
+# Flutter com WebAPI: integrando sua aplicação
 
-Projeto do primeiro curso de WebAPI da Formação Flutter
+Registro diário, incluir e listar;  
+Faça esse curso de Flutter e:   
+Identifique o que é uma Web API 
+Aprenda a integrar uma Web API em um aplicativo de diário   
+Utilizar uma biblioteca HTTP para fazer requisições;    
+Compreenda o que são UUID, interceptadores, loggers, REST, restful e JSON   
+Aprenda a configurar interceptadores e loggers  
+Salve informações de apps na internet   
+Aprenda a pegar e mostrar um dado no app com a requisição GET   
+Entenda como salvar uma entrada no app com a requisição POST    
 
-## Getting Started
+## Curso da Alura
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
 
 Após salvarmos o código, voltamos para o terminal "server", paramos o servidor e depois rodamos novamente o comando json-server --watch --host seu ip aqui db.json.
 
