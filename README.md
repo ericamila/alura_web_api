@@ -1,3 +1,5 @@
+## Curso da Alura
+
 # Flutter com WebAPI: integrando sua aplicação
 
 Registro diário, incluir e listar;  
@@ -11,7 +13,17 @@ Salve informações de apps na internet
 Aprenda a pegar e mostrar um dado no app com a requisição GET   
 Entenda como salvar uma entrada no app com a requisição POST    
 
-## Curso da Alura
+
+# Flutter com WebAPI: evoluindo na integração da aplicação
+
+(Re)conhecendo o Projeto Base;  
+Alterando um recurso com o PUT;  
+Removendo um recurso com o DELETE;  
+Criando um Dialog de Confirmação;   
+Configurando o JSON-Server para aceitar autenticações;  
+Configurando o Cliente para ligar com autenticações;    
+Lidando com erros mais comuns;  
+Refatorando o código.   
 
 
 Após salvarmos o código, voltamos para o terminal "server", paramos o servidor e depois rodamos novamente o comando json-server --watch --host seu ip aqui db.json.
