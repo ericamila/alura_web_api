@@ -1,4 +1,11 @@
 {
+  "users": [
+    {
+      "email": "erica@email.com",
+      "password": "$2a$10$QV8aekecKWIwj4.jw8FKgeFxaMN23wJ9fXmYEI9fhWo9VL6/jBmDq",
+      "id": 1
+    }
+  ],
   "learnhttp": {
     "content": "Olá mundo!"
   },
@@ -56,6 +63,17 @@
       "content": "asdsfafas",
       "created_at": "2024-04-27 15:09:27.510160",
       "updated_at": "2024-04-27 15:09:27.510160"
+    },
+    {
+      "email": "erica@email.com",
+      "password": "123456",
+      "id": "dsr89nw"
+    },
+    {
+      "id": "6hbRWKh"
+    },
+    {
+      "id": "Ws75NqX"
     }
   ]
 }

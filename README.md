@@ -30,7 +30,6 @@ Após salvarmos o código, voltamos para o terminal "server", paramos o servidor
 
 ````cmake
 > cd .\server\
-> json-server --watch --host 192.168.150.131 db.json
-
+> json-server-auth --watch --host 192.168.150.131 db.json -r routes.json
 ````
 
