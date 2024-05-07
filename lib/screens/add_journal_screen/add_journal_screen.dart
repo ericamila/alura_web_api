@@ -1,7 +1,13 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_webapi_first_course/helpers/weekday.dart';
 import 'package:flutter_webapi_first_course/models/journal.dart';
 import 'package:flutter_webapi_first_course/services/journal_service.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+
+import '../../helpers/logout.dart';
+import '../commom/exception_dialog.dart';
 
 class AddJournalScreen extends StatefulWidget {
   final Journal journal;
@@ -15,7 +21,7 @@ class AddJournalScreen extends StatefulWidget {
 }
 
 class _AddJournalScreenState extends State<AddJournalScreen> {
-  TextEditingController _contentController = TextEditingController();
+  final TextEditingController _contentController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -47,20 +53,49 @@ class _AddJournalScreenState extends State<AddJournalScreen> {
   }
 
   registerJournal(BuildContext context) async {
-    JournalService journalService = JournalService();
-    widget.journal.content = _contentController.text;
+    SharedPreferences.getInstance().then((preferences) {
+      String? token = preferences.getString("accessToken");
+      if (token != null) {
+        JournalService journalService = JournalService();
+        widget.journal.content = _contentController.text;
 
-    if (widget.isEditing) {
-      journalService.register(widget.journal).then((value) {
-        Navigator.pop(
-            context, (value) ? DisposeStatus.success : DisposeStatus.error);
-      });
-    } else {
-      journalService.edit(widget.journal.id, widget.journal).then((value) {
-        Navigator.pop(
-            context, (value) ? DisposeStatus.success : DisposeStatus.error);
-      });
-    }
+        if (widget.isEditing) {
+          journalService.register(widget.journal, token).then((value) {
+            Navigator.pop(
+                context, (value) ? DisposeStatus.success : DisposeStatus.error);
+          }).catchError(
+            (error) {
+              logout(context);
+            },
+            test: (error) => error is TokenNotValidException,
+          ).catchError(
+            (error) {
+              var innerError = error as HttpException;
+              showExceptionDialog(context, content: innerError.message);
+            },
+            test: (error) => error is HttpException,
+          );
+        } else {
+          journalService
+              .edit(widget.journal.id, widget.journal, token)
+              .then((value) {
+            Navigator.pop(
+                context, (value) ? DisposeStatus.success : DisposeStatus.error);
+          }).catchError(
+            (error) {
+              logout(context);
+            },
+            test: (error) => error is TokenNotValidException,
+          ).catchError(
+            (error) {
+              var innerError = error as HttpException;
+              showExceptionDialog(context, content: innerError.message);
+            },
+            test: (error) => error is HttpException,
+          );
+        }
+      }
+    });
   }
 }
 

@@ -1,21 +1,29 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_webapi_first_course/helpers/weekday.dart';
 import 'package:flutter_webapi_first_course/models/journal.dart';
 import 'package:flutter_webapi_first_course/screens/commom/confirmation_dialog.dart';
 import 'package:flutter_webapi_first_course/services/journal_service.dart';
 import 'package:uuid/uuid.dart';
+import '../../../helpers/logout.dart';
 import '../../add_journal_screen/add_journal_screen.dart';
+import '../../commom/exception_dialog.dart';
 
 class JournalCard extends StatelessWidget {
   final Journal? journal;
   final DateTime showedDate;
   final Function refreshFunction;
+  final String userId;
+  final String token;
 
   const JournalCard({
     super.key,
     this.journal,
     required this.showedDate,
     required this.refreshFunction,
+    required this.userId,
+    required this.token,
   });
 
   @override
@@ -118,6 +126,7 @@ class JournalCard extends StatelessWidget {
       content: "",
       createdAt: showedDate,
       updatedAt: showedDate,
+      userId: userId,
     );
 
     Map<String, dynamic> map = {};
@@ -165,7 +174,7 @@ class JournalCard extends StatelessWidget {
       ).then((value) {
         if (value != null) {
           if (value) {
-            service.delete(journal!.id).then((value) {
+            service.delete(journal!.id, token).then((value) {
               if (value) {
                 ScaffoldMessenger.of(context).showSnackBar(
                   const SnackBar(
@@ -174,7 +183,18 @@ class JournalCard extends StatelessWidget {
                 );
               }
               refreshFunction();
-            });
+            }).catchError(
+              (error) {
+                logout(context);
+              },
+              test: (error) => error is TokenNotValidException,
+            ).catchError(
+              (error) {
+                var innerError = error as HttpException;
+                showExceptionDialog(context, content: innerError.message);
+              },
+              test: (error) => error is HttpException,
+            );
           }
         }
       });

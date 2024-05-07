@@ -1,23 +1,38 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_webapi_first_course/services/journal_service.dart';
+import 'package:flutter_webapi_first_course/screens/login_screen/login_screen.dart';
+import 'package:flutter_webapi_first_course/services/auth_services.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'models/journal.dart';
 import 'screens/add_journal_screen/add_journal_screen.dart';
 import 'screens/home_screen/home_screen.dart';
 
-void main() {
-  runApp(const MyApp());
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  bool isLogged = await verifyToken();
+  AuthServices services = AuthServices();
+  services.register(email: 'camila@email.com', password: 'eeeeee');
+  runApp(
+    MyApp(
+      isLogged: isLogged,
+    ),
+  );
+}
 
-  //TODO: Remover testes
-  JournalService journalService = JournalService();
-  //journalService.register(Journal.empty());
-  journalService.getAll();
-
-  //asyncStudy();
+Future<bool> verifyToken() async {
+  SharedPreferences preferences = await SharedPreferences.getInstance();
+  String? token = preferences.getString("accessToken");
+  if (token != null) {
+    return true;
+  }
+  return false;
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  final bool isLogged;
+
+  const MyApp({super.key, required this.isLogged});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -36,18 +51,23 @@ class MyApp extends StatelessWidget {
         ),
         textTheme: GoogleFonts.aleoTextTheme(),
       ),
-      initialRoute: "home",
+      initialRoute: isLogged ? "home" : "login",
       routes: {
         "home": (context) => const HomeScreen(),
+        "login": (context) => LoginScreen(),
       },
       onGenerateRoute: (routeSettings) {
         if (routeSettings.name == "add-journal") {
-          Map<String, dynamic> map = routeSettings.arguments as Map<String, dynamic>;
+          Map<String, dynamic> map =
+              routeSettings.arguments as Map<String, dynamic>;
           final journal = map['journal'] as Journal;
           final bool isEditing = map["is_editing"];
           return MaterialPageRoute(
             builder: (context) {
-              return AddJournalScreen(journal: journal, isEditing: isEditing,);
+              return AddJournalScreen(
+                journal: journal,
+                isEditing: isEditing,
+              );
             },
           );
         }

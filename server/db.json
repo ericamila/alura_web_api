@@ -4,6 +4,16 @@
       "email": "erica@email.com",
       "password": "$2a$10$QV8aekecKWIwj4.jw8FKgeFxaMN23wJ9fXmYEI9fhWo9VL6/jBmDq",
       "id": 1
+    },
+    {
+      "email": "camila@email.com",
+      "password": "$2a$10$QV8aekecKWIwj4.jw8FKgeFxaMN23wJ9fXmYEI9fhWo9VL6/jBmDq",
+      "id": 2
+    },
+    {
+      "email": "asdf@email.com",
+      "password": "$2a$10$3/KuVzlU1jU4oMl8twLUBOpR7m92MIXo01GTl3VvhkFP4vhbJWQ12",
+      "id": 3
     }
   ],
   "learnhttp": {
@@ -11,69 +21,53 @@
   },
   "journals": [
     {
-      "id": "9fe184d0-10c9-1f73-be4b-2d0eb57a2cb1",
-      "content": "Não tinha nada aqui",
-      "created_at": "2024-04-15 15:46:52.764245",
-      "updated_at": "2024-04-15 15:46:52.764304"
-    },
-    {
-      "id": "5dd9cb90-126a-1f73-be4b-2d0eb57a2cb1",
-      "content": "como foi nosso dia",
-      "created_at": "2024-04-06 15:46:54.745497",
-      "updated_at": "2024-04-06 15:46:54.745497"
-    },
-    {
-      "id": "8f8bd900-3086-1f73-8083-458cda1e7dec",
-      "content": "Domingo de sol",
-      "created_at": "2024-04-07 16:43:57.373751",
-      "updated_at": "2024-04-07 16:43:57.373751"
-    },
-    {
-      "id": "aa5ab800-348c-1f73-8083-458cda1e7dec",
-      "content": "Aqui tem",
-      "created_at": "2024-04-12 16:43:57.373751",
-      "updated_at": "2024-04-12 16:43:57.373751"
-    },
-    {
-      "id": "00747650-34f0-1f73-9993-d549ad4f5b60",
-      "content": "aqui  domingo",
-      "created_at": "2024-04-07 16:53:00.193147",
-      "updated_at": "2024-04-07 16:53:00.193147"
-    },
-    {
-      "id": "3119bd10-3e23-1f73-ac2d-2b0e3f625517",
-      "content": "Ainda tera",
-      "created_at": "2024-04-09 17:09:55.634847",
-      "updated_at": "2024-04-09 17:09:55.634847"
-    },
-    {
-      "id": "05a735b0-0d2d-1fa7-8a05-0b350801a0a6",
-      "content": "J eist existe",
-      "created_at": "2024-04-23 14:10:45.141977",
-      "updated_at": "2024-04-23 14:10:45.141977"
-    },
-    {
       "id": "50ead870-0f98-1fa7-8a05-0b350801a0a6",
       "content": "25 apaga",
-      "created_at": "2024-04-25 14:10:45.141977",
-      "updated_at": "2024-04-25 14:10:45.141977"
+      "created_at": "2024-04-30 14:10:45.141977",
+      "updated_at": "2024-04-30 14:10:45.141977",
+      "userId": 1
     },
     {
       "id": "dbd09af0-3db3-1faa-8001-a7bc96482cf5",
-      "content": "asdsfafas",
-      "created_at": "2024-04-27 15:09:27.510160",
-      "updated_at": "2024-04-27 15:09:27.510160"
+      "content": "alterado",
+      "created_at": "2024-04-29 15:09:27.510160",
+      "updated_at": "2024-05-07 16:51:58.211704",
+      "userId": "1"
     },
     {
-      "email": "erica@email.com",
-      "password": "123456",
-      "id": "dsr89nw"
+      "id": "f3cf0dc0-6a35-1fb6-9c84-b7af28c0a452",
+      "content": "teste sss",
+      "created_at": "2024-05-06 14:21:57.244252",
+      "updated_at": "2024-05-06 14:21:57.244252",
+      "userId": 1
     },
     {
-      "id": "6hbRWKh"
+      "id": "442b57d0-6aa7-1fb6-9c84-b7af28c0a452",
+      "content": "boa noite",
+      "created_at": "2024-05-04 14:21:57.244252",
+      "updated_at": "2024-05-04 14:21:57.244252",
+      "userId": 1
     },
     {
-      "id": "Ws75NqX"
+      "id": "65a9e630-7103-1fb6-a3fd-59d880d77501",
+      "content": "safsad",
+      "created_at": "2024-05-05 14:34:32.628736",
+      "updated_at": "2024-05-05 14:34:32.628736",
+      "userId": 2
+    },
+    {
+      "id": "54df7400-710d-1fb6-a3fd-59d880d77501",
+      "content": "cacacac",
+      "created_at": "2024-05-03 14:34:32.628736",
+      "updated_at": "2024-05-03 14:34:32.628736",
+      "userId": 2
+    },
+    {
+      "id": "d1438e70-711a-1fb6-a3fd-59d880d77501",
+      "content": "camila",
+      "created_at": "2024-04-29 14:34:32.628736",
+      "updated_at": "2024-05-07 16:53:42.714200",
+      "userId": "2"
     }
   ]
 }
